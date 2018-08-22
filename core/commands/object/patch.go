@@ -89,7 +89,7 @@ the limit will not be respected by the network.
 
 		return cmds.EmitOnce(re, &Object{Hash: p.Cid().String()})
 	},
-	Type: Object{},
+	Type: &Object{},
 	Encoders: cmds.EncoderMap{
 		cmds.Text: cmds.MakeTypedEncoder(func(req *cmds.Request, w io.Writer, obj *Object) error {
 			_, err := fmt.Fprintln(w, obj.Hash)

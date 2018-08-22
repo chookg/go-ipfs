@@ -162,7 +162,7 @@ multihash.
 			}
 		}
 
-		out := Object{
+		out := &Object{
 			Hash:  rp.Cid().String(),
 			Links: outLinks,
 		}
@@ -194,7 +194,7 @@ multihash.
 			return buf, nil
 		},
 	},
-	Type: Object{},
+	Type: &Object{},
 }
 
 var ObjectGetCmd = &oldcmds.Command{
