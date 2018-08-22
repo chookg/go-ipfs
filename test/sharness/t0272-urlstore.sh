@@ -43,7 +43,7 @@ test_expect_success "enable urlstore" '
   ipfs config --json Experimental.UrlstoreEnabled true
 '
 
-test_launch_ipfs_daemon --offline
+test_launch_ipfs_daemon --offline -D
 
 test_expect_success "add files using gateway address via url store" '
   HASH1=$(ipfs urlstore add http://127.0.0.1:$GWAY_PORT/ipfs/$HASH1a) &&
@@ -118,6 +118,8 @@ test_expect_success "add large file using gateway address via url store" '
 test_expect_success "make sure hashes are different" '
   test $HASH3a != $HASH3
 '
+
+sleep 1
 
 test_expect_success "get large file via urlstore" '
   ipfs get $HASH3 -o file3.actual &&
